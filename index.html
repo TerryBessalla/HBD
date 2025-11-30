@@ -4,358 +4,326 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>🎉 Happy Birthday Marie Christine! 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
 <style>
 :root{
-  --pink: #ff6bcb;
-  --yellow: #ffd93d;
-  --blue: #6bdfff;
-  --green: #6bffb8;
+  --primary: #ff6bcb;
+  --secondary: #ffd93d;
+  --accent: #6bdfff;
   --purple: #c47dff;
-  --white: #ffffff;
-  --bg1: #ff9a9e;
-  --bg2: #fad0c4;
-  --bg3: #fbc2eb;
-  --bg4: #a6c1ee;
+  --green: #6bffb8;
+  --text: #ffffff;
+  --glass: rgba(255,255,255,0.22);
+  --glass-border: rgba(255,255,255,0.4);
+  --shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
-
-/* Reset */
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;overflow-x:hidden}
-
-/* Background */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;font-family:'Fredoka',system-ui,-apple-system,sans-serif}
 body{
-  font-family:'Poppins',sans-serif;
-  background: linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3),var(--bg4));
+  background: linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab);
   background-size:400% 400%;
-  animation:bgMove 15s ease infinite;
+  animation: bgAnim 15s ease infinite;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:20px;
-  color:var(--white);
+  color:var(--text);
   position:relative;
-  overflow:hidden;
 }
-@keyframes bgMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* Balloons & sparkles */
-.balloon{position:absolute;font-size:clamp(30px,6vw,70px);animation:float 7s ease-in-out infinite;z-index:5;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.25))}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-40px) rotate(6deg)}}
-.spark{position:absolute;width:12px;height:12px;background:radial-gradient(circle,#fff,transparent);border-radius:50%;animation:sparkle 3s infinite;z-index:4}
-@keyframes sparkle{0%,100%{transform:scale(.4);opacity:.6}50%{transform:scale(1.2);opacity:1}}
-
-/* Card */
-.card{position:relative;z-index:10;width:100%;max-width:900px;padding:30px;border-radius:26px;text-align:center;background:rgba(255,255,255,0.18);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 20px 60px rgba(0,0,0,0.36);animation:popIn .9s ease-out forwards;transform:scale(.92);opacity:0}
-@keyframes popIn{to{transform:scale(1);opacity:1}}
-
-/* Title / message */
-h1{font-size:clamp(26px,6vw,42px);font-weight:900;margin-bottom:10px;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientSlide 5s linear infinite}
-@keyframes gradientSlide{0%{background-position:0%}100%{background-position:200%}}
-#happyMessage{font-size:clamp(15px,3vw,20px);color:white;margin-bottom:18px;font-weight:600;animation:pulseGlow 3s infinite}
-@keyframes pulseGlow{0%,100%{opacity:.85}50%{opacity:1;transform:translateY(-3px)}}
-
-/* Countdown */
-.digits{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;margin-bottom:18px}
-.unit{padding:16px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,0.18)}
-.value{font-size:clamp(34px,7vw,56px);font-weight:900;color:var(--white);text-shadow:0 6px 18px rgba(0,0,0,.25)}
-.label{margin-top:6px;font-size:12px;opacity:.85;text-transform:uppercase}
-
-/* Buttons */
-.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
-.btn{padding:12px 22px;border-radius:14px;border:none;cursor:pointer;font-weight:800;font-size:15px;background:linear-gradient(135deg,var(--pink),var(--purple));color:white;box-shadow:0 8px 20px rgba(0,0,0,.22);transition:.18s}
-.btn:hover{transform:scale(1.05)}
-.btn2{background:linear-gradient(135deg,var(--yellow),var(--green));color:#111}
-
-/* Celebration overlay (center message) */
-.celebration{position:fixed;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));display:none;justify-content:center;align-items:center;z-index:400}
-.celebration .message{background:linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));padding:36px;border-radius:20px;text-align:center;backdrop-filter:blur(18px);animation:popUp 1.2s ease forwards;opacity:0;transform:scale(.6) rotate(-3deg);box-shadow:0 26px 70px rgba(0,0,0,.55)}
-@keyframes popUp{100%{opacity:1;transform:scale(1) rotate(0)}}
-.celebration h2{font-size:clamp(28px,6vw,48px);background:linear-gradient(90deg,var(--pink),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
-.celebration p{font-size:clamp(16px,3vw,20px);color:white;line-height:1.35}
-
-/* Confetti container */
-#confettiContainer{position:fixed;inset:0;pointer-events:none;z-index:350}
-
-/* Audio button */
-#audioBtn{position:fixed;right:18px;bottom:18px;padding:14px 20px;border-radius:30px;background:linear-gradient(135deg,var(--pink),var(--yellow));border:none;font-weight:800;color:#111;z-index:500;box-shadow:0 10px 25px rgba(0,0,0,.25);cursor:pointer;animation:softPulse 2s infinite}
-@keyframes softPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-
-/* responsive */
-@media (max-width:640px){.card{padding:20px;border-radius:16px}.value{font-size:clamp(28px,10vw,44px)}}
+@keyframes bgAnim{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.sparkle{position:fixed;width:8px;height:8px;background:rgba(255,255,255,0.9);border-radius:50%;pointer-events:none;animation:sparkleFloat 4s ease-in-out infinite;box-shadow:0 0 12px rgba(255,255,255,0.8)}
+@keyframes sparkleFloat{0%,100%{transform:translateY(0) scale(1);opacity:0.8}50%{transform:translateY(-30px) scale(1.3);opacity:1}}
+.card{width:100%;max-width:900px;background:var(--glass);border-radius:32px;border:2px solid var(--glass-border);padding:48px 40px;box-shadow:var(--shadow),0 0 0 1px rgba(255,255,255,0.1) inset;text-align:center;z-index:5;position:relative;backdrop-filter: blur(20px) saturate(180%);transform:translateY(0);animation: cardEntrance 0.8s cubic-bezier(0.34,1.56,0.64,1)}
+@keyframes cardEntrance{from{opacity:0;transform:translateY(40px) scale(0.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+h1{font-size:clamp(26px,5vw,44px);line-height:1.2;margin-bottom:12px;font-weight:700;text-shadow:0 3px 15px rgba(0,0,0,0.3);letter-spacing:-0.5px}
+.name-highlight{font-family:'Pacifico',cursive;color:var(--secondary);display:inline-block;animation:nameGlow 2s ease-in-out infinite;text-shadow:0 0 20px rgba(255,217,61,0.6)}
+@keyframes nameGlow{0%,100%{text-shadow:0 0 20px rgba(255,217,61,0.6)}50%{text-shadow:0 0 30px rgba(255,217,61,0.9),0 0 40px rgba(255,217,61,0.5)}}
+.subtitle{color:rgba(255,255,255,0.95);margin-bottom:32px;font-weight:500;font-size:clamp(14px,2.5vw,18px);text-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.digits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px}
+.unit{background:linear-gradient(145deg,rgba(255,255,255,0.15),rgba(255,255,255,0.05));border-radius:20px;padding:24px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.2);transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;overflow:hidden}
+.unit::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.1) 0%,transparent 70%);opacity:0;transition:opacity 0.3s ease}
+.unit:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 12px 40px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.3)}
+.unit:hover::before{opacity:1}
+.value{font-size:clamp(36px,7vw,64px);font-weight:900;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0.8) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;text-shadow:0 4px 12px rgba(0,0,0,0.2);filter:drop-shadow(0 2px 4px rgba(0,0,0,0.15))}
+.label{font-size:13px;opacity:0.9;margin-top:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.controls{display:flex;gap:14px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.btn{padding:14px 28px;border-radius:999px;border:none;font-weight:700;font-size:15px;cursor:pointer;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 4px 15px rgba(0,0,0,0.2);position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,0.3);transform:translate(-50%,-50%);transition:width 0.6s ease,height 0.6s ease}
+.btn:hover::before{width:300px;height:300px}
+.btn:active{transform:scale(0.95)}
+.btn-play{background:linear-gradient(135deg,var(--secondary),#ffb347);color:#222;font-size:16px;padding:16px 32px;box-shadow:0 6px 25px rgba(255,179,71,0.4)}
+.btn-play:hover{box-shadow:0 8px 35px rgba(255,179,71,0.6);transform:translateY(-2px) scale(1.05)}
+.btn-toggle{background:rgba(255,255,255,0.18);color:#fff;border:2px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px)}
+.btn-toggle:hover{background:rgba(255,255,255,0.25);border-color:rgba(255,255,255,0.5);transform:translateY(-2px)}
+.celebration{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:30;pointer-events:none;visibility:hidden;opacity:0;transition:opacity 0.5s ease,visibility 0.5s ease}
+.celebration.visible{pointer-events:auto;visibility:visible;opacity:1}
+.celebration .box{background:linear-gradient(145deg,rgba(0,0,0,0.6),rgba(0,0,0,0.75));padding:50px 40px;border-radius:32px;text-align:center;color:var(--text);backdrop-filter:blur(16px);box-shadow:0 40px 100px rgba(0,0,0,0.7),0 0 0 2px rgba(255,255,255,0.1) inset;max-width:650px;margin:20px;animation:celebrationPop 0.6s cubic-bezier(0.34,1.56,0.64,1);border:2px solid rgba(255,255,255,0.2)}
+@keyframes celebrationPop{from{transform:scale(0.5);opacity:0}to{transform:scale(1);opacity:1}}
+.celebration h2{font-size:clamp(32px,7vw,56px);margin-bottom:20px;font-family:'Pacifico',cursive;line-height:1.2;animation:titleBounce 1s ease infinite alternate;background:linear-gradient(135deg,#ffd93d,#ff6bcb,#6bdfff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+@keyframes titleBounce{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+.celebration p{font-size:clamp(16px,3.8vw,20px);line-height:1.6;opacity:0.98;font-weight:500}
+.celebration .emoji-large{font-size:clamp(40px,10vw,72px);display:block;margin:20px 0;animation:emojiSpin 3s ease-in-out infinite}
+@keyframes emojiSpin{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.1)}}
+#balloons-container{position:fixed;inset:0;pointer-events:none;z-index:4;overflow:visible}
+.balloon{position:absolute;animation:balloonFloat 8s ease-in-out infinite;filter:drop-shadow(0 8px 16px rgba(0,0,0,0.3))}
+@keyframes balloonFloat{0%{transform:translateY(100vh) translateX(0) rotate(0deg)}50%{transform:translateY(-20vh) translateX(30px) rotate(10deg)}100%{transform:translateY(-120vh) translateX(-20px) rotate(-5deg)}}
+#confetti-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:20;pointer-events:none}
+.hidden{display:none !important}
+@media (max-width:600px){.digits{grid-template-columns:repeat(2,1fr);gap:14px}.card{padding:28px 24px;border-radius:24px}.controls{gap:10px}.unit{padding:18px 12px}.celebration .box{padding:36px 28px}.btn{padding:12px 24px;font-size:14px}}
 </style>
 </head>
 <body>
 
-<!-- Balloons and sparkles -->
-<div class="balloon" style="left:8%;top:18%">🎈</div>
-<div class="balloon" style="left:22%;top:72%;animation-delay:.9s">🎈</div>
-<div class="balloon" style="right:12%;top:26%;animation-delay:1.6s">🎉</div>
-<div class="balloon" style="right:22%;top:68%;animation-delay:1.2s">🎈</div>
-<div class="balloon" style="left:54%;top:8%;animation-delay:.6s">🎉</div>
+<div class="sparkle" style="top:10%;left:15%;animation-delay:0s"></div>
+<div class="sparkle" style="top:20%;left:85%;animation-delay:0.7s"></div>
+<div class="sparkle" style="top:70%;left:10%;animation-delay:1.4s"></div>
+<div class="sparkle" style="top:80%;left:90%;animation-delay:2.1s"></div>
+<div class="sparkle" style="top:30%;left:50%;animation-delay:2.8s"></div>
 
-<div class="spark" style="left:12%;top:30%"></div>
-<div class="spark" style="left:78%;top:22%"></div>
-<div class="spark" style="left:58%;top:74%"></div>
-<div class="spark" style="left:24%;top:86%"></div>
+<div id="balloons-container" aria-hidden="true"></div>
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
 
-<!-- Main card -->
-<div class="card" role="region" aria-label="Birthday countdown card">
-  <h1>Birthday Countdown — Marie Christine</h1>
+<div class="card" role="region" aria-label="Birthday card">
+  <div id="countdown-ui">
+    <h1>Birthday Countdown — <span class="name-highlight">Marie Christine</span></h1>
+    <p class="subtitle">✨ The magical day is approaching — get ready to celebrate! ✨</p>
 
-  <p id="happyMessage" aria-live="polite">
-    🎉 A colorful celebration is coming!  
-    May your day shine with joy, laughter and wonderful memories, big sister! 💛✨
-  </p>
+    <div class="digits" id="digits">
+      <div class="unit"><div class="value" id="d">00</div><div class="label">Days</div></div>
+      <div class="unit"><div class="value" id="h">00</div><div class="label">Hours</div></div>
+      <div class="unit"><div class="value" id="m">00</div><div class="label">Minutes</div></div>
+      <div class="unit"><div class="value" id="s">00</div><div class="label">Seconds</div></div>
+    </div>
 
-  <div class="digits" id="digits">
-    <div class="unit"><div class="value" id="h">00</div><div class="label">Hours</div></div>
-    <div class="unit"><div class="value" id="m">00</div><div class="label">Minutes</div></div>
-    <div class="unit"><div class="value" id="s">00</div><div class="label">Seconds</div></div>
-    <div class="unit"><div class="value" id="ms">000</div><div class="label">Milliseconds</div></div>
+    <div class="controls">
+      <button id="audioBtn" class="btn btn-play" aria-label="Enable music">🎵 Enable Birthday Music</button>
+      <button id="muteBtn" class="btn btn-toggle" aria-label="Toggle music">🔊 Music ON</button>
+      <button id="resetBtn" class="btn btn-toggle" aria-label="Reset countdown">🔄 Reset</button>
+    </div>
   </div>
-
-  <div class="cta" role="group" aria-label="controls">
-    <button class="btn" id="resetBtn" aria-label="Reset countdown">🔄 Reset</button>
-    <button class="btn btn2" id="muteBtn" aria-label="Toggle music">🔊 Music ON</button>
-  </div>
+  <div id="celebration-ui" class="hidden" aria-hidden="true"></div>
 </div>
 
-<!-- Celebration overlay (will be shown on birthday) -->
 <div class="celebration" id="celebration" role="dialog" aria-hidden="true">
-  <div class="message" role="document">
-    <h2>🎉 Happy Birthday Marie Christine! 🎂</h2>
-    <p>
-      May your day overflow with joy, laughter and magical moments.  
-      You deserve the very best, big sister! 💛✨
-      <br><br>
-      🥃 And don’t forget to send your Mobile Money — I’ll send you a Grant’s that drips drips. 💸✨
-    </p>
+  <div class="box" role="document">
+    <h2 id="celebration-title">🎉 Happy Birthday Marie Christine! 🎂</h2>
+    <span class="emoji-large">🎊</span>
+    <p id="celebration-message"></p>
   </div>
 </div>
 
-<!-- Confetti -->
-<div id="confettiContainer" aria-hidden="true"></div>
-
-<!-- Audio (Wikimedia OGG + mp3 fallback) -->
 <audio id="music" preload="auto" loop>
   <source src="https://upload.wikimedia.org/wikipedia/commons/0/02/Happy_Birthday_to_You.ogg" type="audio/ogg">
   <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/0/02/Happy_Birthday_to_You.ogg/Happy_Birthday_to_You.ogg.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
 </audio>
 
-<button id="audioBtn" aria-label="Enable birthday music">Enable Birthday Music 🎵</button>
-
 <script>
-/* CONFIG */
+/* Config */
 const BIRTHDAY_MONTH = 11; // December (0-based)
-const BIRTHDAY_DAY = 1;    // 1st
+const BIRTHDAY_DAY = 1;
 
-/* DOM */
+/* Messages */
+const BIRTHDAY_MESSAGES = [
+  "May your day overflow with joy, laughter and magical moments. You deserve the very best, big sister! 💛✨<br><br>🥃 And don't forget to send your Mobile Money — I'll send you a Grant's that drips drips. 💸✨",
+  "Wishing you a spectacular birthday filled with love, surprises and unforgettable memories! Here's to another amazing year, sis! 🌟💖<br><br>🥃 Mobile Money awaits... and so does that premium Grant's! 💸",
+  "Happy Birthday to the most wonderful sister! May this year bring you endless happiness, success and beautiful moments! 🎈✨<br><br>🥃 You know the drill — send that Mobile Money and I'll make it rain Grant's! 💸🎉",
+  "Cheers to you on your special day! May it sparkle with joy, shimmer with laughter, and glow with love! You're simply the best! 💫🎂<br><br>🥃 Mobile Money = Grant's delivery. Let's make this birthday legendary! 💸✨",
+  "Sending you oceans of love and mountains of joy on your birthday! You deserve all the wonderful things life has to offer, dear sister! 🌊⛰️💕<br><br>🥃 The Grant's is waiting... just send that Mobile Money and let's celebrate properly! 💸🎊",
+  "Happy Birthday to my amazing sister! May your day be as bright as your smile and as sweet as your heart! Enjoy every magical moment! 🌈💝<br><br>🥃 You already know — Mobile Money = instant Grant's delivery! Let's toast to you! 💸🥂"
+];
+
+/* DOM refs */
+const dEl = document.getElementById('d');
 const hEl = document.getElementById('h');
 const mEl = document.getElementById('m');
 const sEl = document.getElementById('s');
-const msEl = document.getElementById('ms');
-const digitsEl = document.getElementById('digits');
-const resetBtn = document.getElementById('resetBtn');
-const muteBtn = document.getElementById('muteBtn');
-const celebration = document.getElementById('celebration');
-const confettiContainer = document.getElementById('confettiContainer');
-const music = document.getElementById('music');
+const digitsContainer = document.getElementById('digits');
 const audioBtn = document.getElementById('audioBtn');
+const muteBtn = document.getElementById('muteBtn');
+const resetBtn = document.getElementById('resetBtn');
+const celebrationOverlay = document.getElementById('celebration');
+const celebrationMessage = document.getElementById('celebration-message');
+const confettiCanvas = document.getElementById('confetti-canvas');
+const balloonsContainer = document.getElementById('balloons-container');
+const music = document.getElementById('music');
 
 let audioUnlocked = false;
 let muted = false;
-let confettiInterval = null;
+let target = nextBirthday();
 let tickInterval = null;
+let confettiEngine = null;
 
-function pad(n, d = 2){ return String(n).padStart(d,'0'); }
+/* Random message */
+celebrationMessage.innerHTML = BIRTHDAY_MESSAGES[Math.floor(Math.random() * BIRTHDAY_MESSAGES.length)];
 
+/* Utils */
+function pad(n,d=2){return String(n).padStart(d,'0')}
 function nextBirthday(){
   const now = new Date();
   let t = new Date(now.getFullYear(), BIRTHDAY_MONTH, BIRTHDAY_DAY, 0,0,0,0);
   if(t <= now) t = new Date(now.getFullYear()+1, BIRTHDAY_MONTH, BIRTHDAY_DAY, 0,0,0,0);
   return t;
 }
+function isTodayBirthday(){ const now=new Date(); return now.getMonth()===BIRTHDAY_MONTH && now.getDate()===BIRTHDAY_DAY }
 
-function isTodayBirthday(){
-  const now = new Date();
-  return now.getMonth() === BIRTHDAY_MONTH && now.getDate() === BIRTHDAY_DAY;
-}
-
-/* Countdown update */
-function update(){
+/* Countdown */
+function updateCountdown(){
   const now = new Date();
   let diff = target - now;
-  if(diff < 0) diff = 0;
-  const hours = Math.floor(diff / 3600000);
-  const minutes = Math.floor((diff % 3600000) / 60000);
-  const seconds = Math.floor((diff % 60000) / 1000);
-  const milliseconds = diff % 1000;
+  if(diff <= 0){
+    clearInterval(tickInterval);
+    triggerCelebration();
+    return;
+  }
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff / (1000*60*60)) % 24);
+  const minutes = Math.floor((diff / (1000*60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+  dEl.textContent = pad(days);
   hEl.textContent = pad(hours);
   mEl.textContent = pad(minutes);
   sEl.textContent = pad(seconds);
-  msEl.textContent = pad(milliseconds, 3);
-  if(diff === 0){ launchCelebration(); }
 }
+tickInterval = setInterval(updateCountdown, 500);
+updateCountdown();
 
-/* CONFETTI: single burst */
-function popConfetti(count = 80){
-  for(let i=0;i<count;i++){
-    const el = document.createElement('div');
-    el.style.position = 'absolute';
-    el.style.left = Math.random()*100 + '%';
-    el.style.top = '-6%';
-    const w = 8 + Math.random()*18;
-    const h = 12 + Math.random()*18;
-    el.style.width = w + 'px';
-    el.style.height = h + 'px';
-    el.style.background = getRandomColor();
-    el.style.opacity = '0.95';
-    el.style.borderRadius = '3px';
-    el.style.transform = `rotate(${Math.random()*360}deg)`;
-    el.style.zIndex = '360';
-    confettiContainer.appendChild(el);
+/* Balloons */
+function startBalloons(){
+  const colors = ['#ff6bcb','#ffd93d','#6bdfff','#ffffff','#c47dff','#6bffb8'];
+  setInterval(()=>{
+    const b = document.createElement('div');
+    b.className = 'balloon';
+    const size = Math.random()*60 + 30;
+    b.style.width = size + 'px';
+    b.style.height = (size*1.15) + 'px';
+    b.style.left = (Math.random()*90) + 'vw';
+    b.style.bottom = '-100px';
+    const c1 = colors[Math.floor(Math.random()*colors.length)];
+    const c2 = colors[Math.floor(Math.random()*colors.length)];
+    b.style.background = `radial-gradient(circle at 30% 30%, ${c1}, ${c2})`;
+    b.style.borderRadius = '50% 50% 45% 45%';
+    b.style.opacity = String(0.8 + Math.random()*0.2);
+    b.style.animationDuration = (8 + Math.random()*7) + 's';
+    balloonsContainer.appendChild(b);
+    setTimeout(()=> b.remove(), 16000);
+  }, 600);
+}
+startBalloons();
 
-    const duration = 2000 + Math.random()*2200;
-    const delay = Math.random()*400;
-
-    const anim = el.animate([
-      { transform: `translateY(0) rotate(${Math.random()*360}deg)`, opacity: 1 },
-      { transform: `translateY(${110 + Math.random()*30}vh) rotate(${720 + Math.random()*360}deg)`, opacity: 0.85 }
-    ], {
-      duration: duration,
-      easing: 'cubic-bezier(.15,.7,.35,1)',
-      delay: delay,
-      fill: 'forwards'
-    });
-
-    anim.onfinish = () => { if(el && el.parentNode) el.parentNode.removeChild(el); };
+/* Confetti engine (same as earlier but concise) */
+class ConfettiEngine {
+  constructor(canvas){
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.dpr = Math.max(1, window.devicePixelRatio || 1);
+    this.particles = [];
+    this.poolSize = 280;
+    this.colors = ['#ff6bcb','#ffd93d','#6bdfff','#6bffb8','#c47dff','#ff8fab','#ffee65'];
+    this.running = false;
+    this.resize();
+    window.addEventListener('resize', ()=>this.resize());
+    for(let i=0;i<this.poolSize;i++) this.particles.push(this.createParticle(true));
   }
-}
-
-function getRandomColor(){
-  const colors=["#ff6bcb","#ffd93d","#6bdfff","#6bffb8","#c47dff","#ff8fab","#ffee65"];
-  return colors[Math.floor(Math.random()*colors.length)];
-}
-
-/* CELEBRATION: show overlay, confetti loop, music */
-function launchCelebration(startContinuous = true){
-  // music
-  if(audioUnlocked && !muted){
-    try{ music.currentTime = 0; music.play().catch(()=>{}); }catch(e){}
+  resize(){ this.canvas.width = Math.floor(window.innerWidth*this.dpr); this.canvas.height = Math.floor(window.innerHeight*this.dpr); this.canvas.style.width = window.innerWidth + 'px'; this.canvas.style.height = window.innerHeight + 'px'; this.ctx.setTransform(this.dpr,0,0,this.dpr,0,0) }
+  createParticle(inactive=false){ return { x:Math.random()*this.canvas.width/this.dpr, y:-10-Math.random()*this.canvas.height/this.dpr, size:7+Math.random()*14, color:this.colors[Math.floor(Math.random()*this.colors.length)], speedY:2.5+Math.random()*5, speedX:(Math.random()-0.5)*3, rotation:Math.random()*360, rotationSpeed:(Math.random()-0.5)*12, life:0, ttl:220+Math.random()*250, active:!inactive } }
+  burst(count=70, areaWidth=null){
+    let activated=0;
+    for(const p of this.particles){ if(activated>=count) break; if(!p.active){ p.active=true; p.life=0; p.ttl=180+Math.random()*280; p.x=(areaWidth?areaWidth*Math.random():Math.random()*window.innerWidth); p.y=-10-Math.random()*25; p.size=7+Math.random()*12; p.color=this.colors[Math.floor(Math.random()*this.colors.length)]; p.speedY=2.5+Math.random()*6; p.speedX=(Math.random()-0.5)*4; p.rotation=Math.random()*360; p.rotationSpeed=(Math.random()-0.5)*14; activated++ } }
+    if(activated<count){ for(let i=0;i<count-activated;i++) this.particles.push(this.createParticle(false)) }
   }
-  // show overlay
-  celebration.style.display = 'flex';
-  celebration.setAttribute('aria-hidden','false');
-
-  // single initial burst
-  popConfetti(160);
-
-  // continuous confetti while celebration (small bursts every 1.4s)
-  if(startContinuous && !confettiInterval){
-    confettiInterval = setInterval(()=> popConfetti(36), 1400);
+  start(){
+    if(this.running) return;
+    this.running=true;
+    const loop=()=>{
+      if(!this.running) return;
+      this.ctx.clearRect(0,0,this.canvas.width/this.dpr,this.canvas.height/this.dpr);
+      const cw=this.canvas.width/this.dpr, ch=this.canvas.height/this.dpr;
+      for(const p of this.particles){
+        if(!p.active) continue;
+        this.ctx.save();
+        this.ctx.translate(p.x,p.y);
+        this.ctx.rotate(p.rotation*Math.PI/180);
+        this.ctx.fillStyle=p.color;
+        this.ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*0.65);
+        this.ctx.restore();
+        p.y += p.speedY; p.x += Math.sin(p.rotation*Math.PI/180)*0.7 + p.speedX; p.rotation += p.rotationSpeed*0.025; p.life++;
+        p.speedX += (Math.random()-0.5)*0.15;
+        if(p.y - p.size > ch || p.life > p.ttl){
+          p.active=false;
+          if(Math.random()<0.025){ p.active=true; p.life=0; p.y=-12; p.x=Math.random()*cw; p.speedY=2+Math.random()*3; p.ttl=120+Math.random()*260 }
+        }
+      }
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
   }
+  stop(){ this.running=false }
+  clear(){ this.ctx.clearRect(0,0,this.canvas.width/this.dpr,this.canvas.height/this.dpr) }
 }
 
-/* Stop celebration (called at midnight) */
-function stopCelebration(){
-  // stop music? keep user choice
-  if(confettiInterval){ clearInterval(confettiInterval); confettiInterval = null; }
-  celebration.style.display = 'none';
-  celebration.setAttribute('aria-hidden','true');
-  // restore digits/controls
-  if(digitsEl) digitsEl.style.display = '';
-  if(resetBtn) resetBtn.style.display = '';
+/* Celebration flow */
+function showCelebrationOverlay(){ celebrationOverlay.classList.add('visible'); celebrationOverlay.setAttribute('aria-hidden','false') }
+function hideCelebrationOverlay(){ celebrationOverlay.classList.remove('visible'); celebrationOverlay.setAttribute('aria-hidden','true') }
+function triggerCelebration(){
+  digitsContainer.style.display='none';
+  showCelebrationOverlay();
+  if(!confettiEngine) confettiEngine=new ConfettiEngine(confettiCanvas);
+  confettiEngine.start();
+  confettiEngine.burst(180, window.innerWidth);
+  setTimeout(()=>confettiEngine.burst(100, window.innerWidth),700);
+  setTimeout(()=>confettiEngine.burst(60, window.innerWidth),1400);
+  if(!confettiEngine._continuousHandle) confettiEngine._continuousHandle = setInterval(()=>confettiEngine.burst(45,window.innerWidth),1600);
+  if(audioUnlocked && !muted){ music.currentTime=0; music.play().catch(()=>{}) }
+  const ms = msUntilMidnight(); if(ms>0){ setTimeout(()=>stopCelebrationAndRestore(), ms + 600) }
 }
-
-/* compute milliseconds until next midnight (end of today) */
-function msUntilMidnight(){
-  const now = new Date();
-  const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0,0,0,0);
-  return tomorrow - now;
+function stopCelebrationAndRestore(){
+  if(confettiEngine && confettiEngine._continuousHandle){ clearInterval(confettiEngine._continuousHandle); confettiEngine._continuousHandle = null }
+  if(confettiEngine){ confettiEngine.stop(); confettiEngine.clear(); confettiEngine=null }
+  hideCelebrationOverlay();
+  digitsContainer.style.display='';
+  target = nextBirthday();
+  updateCountdown();
 }
+function msUntilMidnight(){ const now=new Date(); const tomorrow=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1,0,0,0,0); return tomorrow - now }
 
-/* INITIALIZATION */
-let target = nextBirthday();
-
-/* Start countdown tick (but may be hidden immediately if birthday) */
-tickInterval = setInterval(update, 33);
-update();
-
-/* If today is birthday => show celebration for the rest of the day */
-if(isTodayBirthday()){
-  // hide countdown UI and reset button
-  if(digitsEl) digitsEl.style.display = 'none';
-  if(resetBtn) resetBtn.style.display = 'none';
-
-  // show celebration immediately and start continuous confetti
-  setTimeout(()=> launchCelebration(true), 250);
-
-  // schedule stop at midnight (end of day) to restore normal state
-  const ms = msUntilMidnight();
-  setTimeout(()=>{
-    stopCelebration();
-    // reset target to next year
-    target = nextBirthday();
-    update();
-  }, ms + 500); // small buffer
-}
-
-/* AUDIO activation */
-audioBtn.addEventListener('click', async () => {
-  try {
+/* Audio controls */
+audioBtn.addEventListener('click', async ()=>{
+  try{
     await music.play();
-    music.volume = 1.0;
     audioUnlocked = true;
     muted = false;
     audioBtn.style.display = 'none';
     muteBtn.textContent = '🔊 Music ON';
-  } catch (err){
-    console.warn('Audio play failed', err);
+  }catch(e){
     audioBtn.textContent = 'Tap again to enable 🎵';
   }
 });
-
-/* Mute toggle */
-muteBtn.addEventListener('click', () => {
-  if(!audioUnlocked){
-    audioBtn.style.display = 'block';
-    audioBtn.focus();
-    return;
-  }
+muteBtn.addEventListener('click', ()=>{
+  if(!audioUnlocked){ audioBtn.style.display = ''; audioBtn.focus(); return }
   muted = !muted;
-  if(muted){ music.pause(); muteBtn.textContent = '🔇 Music OFF'; }
-  else { music.play().catch(()=>{}); muteBtn.textContent = '🔊 Music ON'; }
+  if(muted){ music.pause(); muteBtn.textContent = '🔇 Music OFF' } else { music.play().catch(()=>{}); muteBtn.textContent = '🔊 Music ON' }
 });
-
-/* Reset button */
-resetBtn.addEventListener('click', () => {
+resetBtn.addEventListener('click', ()=>{
   target = nextBirthday();
-  if(audioUnlocked && !muted){
-    music.pause();
-    music.currentTime = 0;
-    music.play().catch(()=>{});
-  }
+  updateCountdown();
 });
 
-/* Best-effort attempt to unlock audio on first gesture (no guarantee) */
-function tryUnlockOnFirstGesture(){
-  function unlock(){
-    window.removeEventListener('click', unlock);
-    window.removeEventListener('touchstart', unlock);
-    if(!audioUnlocked){
-      music.play().then(()=>{ music.pause(); music.currentTime = 0; }).catch(()=>{});
-    }
-  }
-  window.addEventListener('click', unlock, { once:true, passive:true });
-  window.addEventListener('touchstart', unlock, { once:true, passive:true });
-}
-tryUnlockOnFirstGesture();
+/* Best-effort unlock on first gesture */
+(function tryUnlockOnFirstGesture(){
+  function once(){ window.removeEventListener('click',once); window.removeEventListener('touchstart',once); if(!audioUnlocked){ music.play().then(()=>{ music.pause(); music.currentTime = 0 }).catch(()=>{}) } }
+  window.addEventListener('click', once, { once:true, passive:true }); window.addEventListener('touchstart', once, { once:true, passive:true });
+})();
 
+/* If today is birthday => immediate celebration for the whole day */
+if(isTodayBirthday()){
+  digitsContainer.style.display='none';
+  resetBtn.style.display='none';
+  setTimeout(()=>triggerCelebration(), 250);
+}
+window.addEventListener('beforeunload', ()=>{ if(confettiEngine && confettiEngine._continuousHandle) clearInterval(confettiEngine._continuousHandle) });
+
+/* export for testing if needed */
+// window._triggerCelebration = triggerCelebration;
 </script>
 </body>
 </html>
