@@ -4,13 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>🎉 Happy Birthday Marie Christine! 🎂</title>
-
 <style>
-/* ===========================================
-   FUN & COLORFUL BIRTHDAY FESTIVE STYLE
-   =========================================== */
-
-/* COLORS */
 :root{
   --pink: #ff6bcb;
   --yellow: #ffd93d;
@@ -25,260 +19,90 @@
 }
 
 /* Reset */
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow-x:hidden}
 
-/* Background — FUN gradient + motion */
+/* Background */
 body{
   font-family:'Poppins',sans-serif;
   background: linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3),var(--bg4));
-  background-size: 400% 400%;
-  animation: bgMove 15s ease infinite;
+  background-size:400% 400%;
+  animation:bgMove 15s ease infinite;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   padding:20px;
   color:var(--white);
   position:relative;
   overflow:hidden;
 }
-
 @keyframes bgMove{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
 
-/* BALLOONS */
-.balloon{
-  position:absolute;
-  font-size:clamp(40px,6vw,70px);
-  animation: float 7s ease-in-out infinite;
-  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.3));
-  z-index:5;
-}
+/* Balloons & sparkles */
+.balloon{position:absolute;font-size:clamp(30px,6vw,70px);animation:float 7s ease-in-out infinite;z-index:5;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.25))}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-40px) rotate(6deg)}}
+.spark{position:absolute;width:12px;height:12px;background:radial-gradient(circle,#fff,transparent);border-radius:50%;animation:sparkle 3s infinite;z-index:4}
+@keyframes sparkle{0%,100%{transform:scale(.4);opacity:.6}50%{transform:scale(1.2);opacity:1}}
 
-@keyframes float{
-  0%,100%{ transform:translateY(0) rotate(-6deg) }
-  50%{ transform:translateY(-40px) rotate(6deg) }
-}
+/* Card */
+.card{position:relative;z-index:10;width:100%;max-width:900px;padding:30px;border-radius:26px;text-align:center;background:rgba(255,255,255,0.18);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 20px 60px rgba(0,0,0,0.36);animation:popIn .9s ease-out forwards;transform:scale(.92);opacity:0}
+@keyframes popIn{to{transform:scale(1);opacity:1}}
 
-/* SPARKLES */
-.spark{
-  position:absolute;
-  width:12px;
-  height:12px;
-  background:radial-gradient(circle,white,transparent);
-  border-radius:50%;
-  animation:sparkle 3s infinite ease-in-out;
-  z-index:4;
-}
-@keyframes sparkle{
-  0%,100%{ transform:scale(0.4);opacity:0.6 }
-  50%{ transform:scale(1.2);opacity:1 }
-}
+/* Title / message */
+h1{font-size:clamp(26px,6vw,42px);font-weight:900;margin-bottom:10px;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientSlide 5s linear infinite}
+@keyframes gradientSlide{0%{background-position:0%}100%{background-position:200%}}
+#happyMessage{font-size:clamp(15px,3vw,20px);color:white;margin-bottom:18px;font-weight:600;animation:pulseGlow 3s infinite}
+@keyframes pulseGlow{0%,100%{opacity:.85}50%{opacity:1;transform:translateY(-3px)}}
 
-/* CARD */
-.card{
-  position:relative;
-  z-index:10;
-  width:100%;
-  max-width:900px;
-  padding:35px;
-  border-radius:30px;
-  text-align:center;
-  background:rgba(255,255,255,0.18);
-  backdrop-filter:blur(20px) saturate(180%);
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
-  animation:popIn 1s ease-out forwards;
-  transform:scale(0.88);
-  opacity:0;
-}
-
-@keyframes popIn{
-  to{transform:scale(1);opacity:1}
-}
-
-/* Title */
-h1{
-  font-size:clamp(26px,6vw,42px);
-  font-weight:900;
-  margin-bottom:12px;
-  background:linear-gradient(90deg,var(--pink),var(--yellow),var(--blue));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:gradientSlide 5s linear infinite;
-  background-size:300% auto;
-}
-
-@keyframes gradientSlide{
-  0%{background-position:0%}
-  100%{background-position:200%}
-}
-
-/* Permanent joyful message */
-#happyMessage{
-  font-size:clamp(15px,3vw,20px);
-  color:white;
-  margin-bottom:22px;
-  font-weight:600;
-  animation:pulseGlow 3s infinite ease-in-out;
-}
-
-@keyframes pulseGlow{
-  0%,100%{ opacity:0.85; transform: translateY(0) }
-  50%{ opacity:1; transform: translateY(-4px) }
-}
-
-/* Countdown blocks */
-.digits{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
-  gap:18px;
-  margin-bottom:22px;
-}
-
-.unit{
-  padding:18px;
-  border-radius:16px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-  backdrop-filter:blur(8px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.06);
-}
-
-.value{
-  font-size:clamp(36px,7vw,56px);
-  font-weight:900;
-  color:var(--white);
-  text-shadow:0 6px 18px rgba(0,0,0,0.25);
-}
-
-.label{
-  margin-top:6px;
-  font-size:13px;
-  opacity:0.85;
-  text-transform:uppercase;
-}
+/* Countdown */
+.digits{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;margin-bottom:18px}
+.unit{padding:16px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,0.18)}
+.value{font-size:clamp(34px,7vw,56px);font-weight:900;color:var(--white);text-shadow:0 6px 18px rgba(0,0,0,.25)}
+.label{margin-top:6px;font-size:12px;opacity:.85;text-transform:uppercase}
 
 /* Buttons */
-.cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.btn{padding:12px 22px;border-radius:14px;border:none;cursor:pointer;font-weight:800;font-size:15px;background:linear-gradient(135deg,var(--pink),var(--purple));color:white;box-shadow:0 8px 20px rgba(0,0,0,.22);transition:.18s}
+.btn:hover{transform:scale(1.05)}
+.btn2{background:linear-gradient(135deg,var(--yellow),var(--green));color:#111}
 
-.btn{
-  padding:12px 26px;
-  border-radius:14px;
-  border:none;
-  cursor:pointer;
-  font-weight:800;
-  font-size:15px;
-  background:linear-gradient(135deg,var(--pink),var(--purple));
-  color:white;
-  box-shadow:0 8px 20px rgba(0,0,0,0.22);
-  transition:0.25s;
-}
-.btn:hover{transform:scale(1.06)}
-
-.btn2{
-  background:linear-gradient(135deg,var(--yellow),var(--green));
-  color:#111;
-}
-
-/* Celebration overlay */
-.celebration{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:400;
-}
-
-.celebration .message{
-  background:linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
-  padding:36px;
-  border-radius:26px;
-  text-align:center;
-  backdrop-filter:blur(20px);
-  animation:popUp 1.2s ease forwards;
-  opacity:0;
-  transform:scale(0.6) rotate(-4deg);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-}
-
-@keyframes popUp{
-  100%{opacity:1;transform:scale(1) rotate(0deg)}
-}
-
-.celebration h2{
-  font-size:clamp(28px,6vw,48px);
-  background:linear-gradient(90deg,var(--pink),var(--yellow));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-bottom:8px;
-}
-
-.celebration p{
-  margin-top:6px;
-  font-size:clamp(16px,3vw,20px);
-  color:white;
-}
+/* Celebration overlay (center message) */
+.celebration{position:fixed;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));display:none;justify-content:center;align-items:center;z-index:400}
+.celebration .message{background:linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));padding:36px;border-radius:20px;text-align:center;backdrop-filter:blur(18px);animation:popUp 1.2s ease forwards;opacity:0;transform:scale(.6) rotate(-3deg);box-shadow:0 26px 70px rgba(0,0,0,.55)}
+@keyframes popUp{100%{opacity:1;transform:scale(1) rotate(0)}}
+.celebration h2{font-size:clamp(28px,6vw,48px);background:linear-gradient(90deg,var(--pink),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.celebration p{font-size:clamp(16px,3vw,20px);color:white;line-height:1.35}
 
 /* Confetti container */
-#confettiContainer{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:350;
-}
+#confettiContainer{position:fixed;inset:0;pointer-events:none;z-index:350}
 
-/* Audio activation button */
-#audioBtn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index:500;
-  padding:14px 20px;
-  border-radius:30px;
-  font-size:15px;
-  font-weight:800;
-  border:none;
-  background:linear-gradient(135deg,var(--pink),var(--yellow));
-  color:#111;
-  box-shadow:0 10px 25px rgba(0,0,0,0.25);
-  cursor:pointer;
-  animation:softPulse 2.2s infinite ease-in-out;
-}
+/* Audio button */
+#audioBtn{position:fixed;right:18px;bottom:18px;padding:14px 20px;border-radius:30px;background:linear-gradient(135deg,var(--pink),var(--yellow));border:none;font-weight:800;color:#111;z-index:500;box-shadow:0 10px 25px rgba(0,0,0,.25);cursor:pointer;animation:softPulse 2s infinite}
+@keyframes softPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 
-@keyframes softPulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.06)}
-}
-
-/* Responsive tweaks */
-@media (max-width:640px){
-  .card{ padding:20px; border-radius:18px; }
-  .balloon{ font-size:clamp(30px,10vw,48px) }
-  .value{ font-size:clamp(28px,10vw,44px) }
-}
+/* responsive */
+@media (max-width:640px){.card{padding:20px;border-radius:16px}.value{font-size:clamp(28px,10vw,44px)}}
 </style>
 </head>
-
 <body>
 
-<!-- Balloons -->
+<!-- Balloons and sparkles -->
 <div class="balloon" style="left:8%;top:18%">🎈</div>
-<div class="balloon" style="left:20%;top:72%;animation-delay:0.9s">🎈</div>
-<div class="balloon" style="right:12%;top:26%;animation-delay:1.8s">🎉</div>
+<div class="balloon" style="left:22%;top:72%;animation-delay:.9s">🎈</div>
+<div class="balloon" style="right:12%;top:26%;animation-delay:1.6s">🎉</div>
 <div class="balloon" style="right:22%;top:68%;animation-delay:1.2s">🎈</div>
-<div class="balloon" style="left:54%;top:8%;animation-delay:0.6s">🎉</div>
+<div class="balloon" style="left:54%;top:8%;animation-delay:.6s">🎉</div>
 
-<!-- SPARKLES -->
 <div class="spark" style="left:12%;top:30%"></div>
 <div class="spark" style="left:78%;top:22%"></div>
 <div class="spark" style="left:58%;top:74%"></div>
 <div class="spark" style="left:24%;top:86%"></div>
 
-<!-- CARD -->
+<!-- Main card -->
 <div class="card" role="region" aria-label="Birthday countdown card">
   <h1>Birthday Countdown — Marie Christine</h1>
 
@@ -287,11 +111,11 @@ h1{
     May your day shine with joy, laughter and wonderful memories, big sister! 💛✨
   </p>
 
-  <div class="digits" aria-hidden="false">
-    <div class="unit" aria-label="hours left"><div class="value" id="h">00</div><div class="label">Hours</div></div>
-    <div class="unit" aria-label="minutes left"><div class="value" id="m">00</div><div class="label">Minutes</div></div>
-    <div class="unit" aria-label="seconds left"><div class="value" id="s">00</div><div class="label">Seconds</div></div>
-    <div class="unit" aria-label="milliseconds left"><div class="value" id="ms">000</div><div class="label">Milliseconds</div></div>
+  <div class="digits" id="digits">
+    <div class="unit"><div class="value" id="h">00</div><div class="label">Hours</div></div>
+    <div class="unit"><div class="value" id="m">00</div><div class="label">Minutes</div></div>
+    <div class="unit"><div class="value" id="s">00</div><div class="label">Seconds</div></div>
+    <div class="unit"><div class="value" id="ms">000</div><div class="label">Milliseconds</div></div>
   </div>
 
   <div class="cta" role="group" aria-label="controls">
@@ -300,57 +124,61 @@ h1{
   </div>
 </div>
 
-<!-- Celebration overlay -->
+<!-- Celebration overlay (will be shown on birthday) -->
 <div class="celebration" id="celebration" role="dialog" aria-hidden="true">
   <div class="message" role="document">
     <h2>🎉 Happy Birthday Marie Christine! 🎂</h2>
-    <p>May your day overflow with joy, laughter and magical moments.  
-    You deserve the very best, big sister! 💛✨</p>
+    <p>
+      May your day overflow with joy, laughter and magical moments.  
+      You deserve the very best, big sister! 💛✨
+      <br><br>
+      🥃 And don’t forget to send your Mobile Money — I’ll send you a Grant’s that drips drips. 💸✨
+    </p>
   </div>
 </div>
 
 <!-- Confetti -->
 <div id="confettiContainer" aria-hidden="true"></div>
 
-<!-- Birthday Music via Wikimedia (OGG + fallback mp3) -->
+<!-- Audio (Wikimedia OGG + mp3 fallback) -->
 <audio id="music" preload="auto" loop>
   <source src="https://upload.wikimedia.org/wikipedia/commons/0/02/Happy_Birthday_to_You.ogg" type="audio/ogg">
   <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/0/02/Happy_Birthday_to_You.ogg/Happy_Birthday_to_You.ogg.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
-<!-- Unlock Audio Button -->
 <button id="audioBtn" aria-label="Enable birthday music">Enable Birthday Music 🎵</button>
 
 <script>
-/* =============================
-   COUNTDOWN SYSTEM
-   ============================= */
-
+/* CONFIG */
 const BIRTHDAY_MONTH = 11; // December (0-based)
 const BIRTHDAY_DAY = 1;    // 1st
 
-const hEl = document.getElementById("h");
-const mEl = document.getElementById("m");
-const sEl = document.getElementById("s");
-const msEl = document.getElementById("ms");
-
-const music = document.getElementById("music");
-const audioBtn = document.getElementById("audioBtn");
-const muteBtn = document.getElementById("muteBtn");
-const celebration = document.getElementById("celebration");
-const resetBtn = document.getElementById("resetBtn");
-const confettiContainer = document.getElementById("confettiContainer");
+/* DOM */
+const hEl = document.getElementById('h');
+const mEl = document.getElementById('m');
+const sEl = document.getElementById('s');
+const msEl = document.getElementById('ms');
+const digitsEl = document.getElementById('digits');
+const resetBtn = document.getElementById('resetBtn');
+const muteBtn = document.getElementById('muteBtn');
+const celebration = document.getElementById('celebration');
+const confettiContainer = document.getElementById('confettiContainer');
+const music = document.getElementById('music');
+const audioBtn = document.getElementById('audioBtn');
 
 let audioUnlocked = false;
 let muted = false;
+let confettiInterval = null;
+let tickInterval = null;
+
+function pad(n, d = 2){ return String(n).padStart(d,'0'); }
 
 function nextBirthday(){
   const now = new Date();
-  let target = new Date(now.getFullYear(), BIRTHDAY_MONTH, BIRTHDAY_DAY, 0,0,0,0);
-  // if target passed, pick next year
-  if(target <= now) target = new Date(now.getFullYear()+1, BIRTHDAY_MONTH, BIRTHDAY_DAY, 0,0,0,0);
-  return target;
+  let t = new Date(now.getFullYear(), BIRTHDAY_MONTH, BIRTHDAY_DAY, 0,0,0,0);
+  if(t <= now) t = new Date(now.getFullYear()+1, BIRTHDAY_MONTH, BIRTHDAY_DAY, 0,0,0,0);
+  return t;
 }
 
 function isTodayBirthday(){
@@ -358,198 +186,176 @@ function isTodayBirthday(){
   return now.getMonth() === BIRTHDAY_MONTH && now.getDate() === BIRTHDAY_DAY;
 }
 
-let target = nextBirthday();
-
-function pad(n, d = 2){ return String(n).padStart(d, "0"); }
-
+/* Countdown update */
 function update(){
   const now = new Date();
   let diff = target - now;
   if(diff < 0) diff = 0;
-
   const hours = Math.floor(diff / 3600000);
   const minutes = Math.floor((diff % 3600000) / 60000);
   const seconds = Math.floor((diff % 60000) / 1000);
   const milliseconds = diff % 1000;
-
   hEl.textContent = pad(hours);
   mEl.textContent = pad(minutes);
   sEl.textContent = pad(seconds);
   msEl.textContent = pad(milliseconds, 3);
-
-  if(diff === 0){
-    launchCelebration();
-  }
+  if(diff === 0){ launchCelebration(); }
 }
 
-/* start ticking */
-const tickInterval = setInterval(update, 33);
-update();
-
-/* If today is the birthday — immediately show confetti + message, hide countdown */
-if(isTodayBirthday()){
-  clearInterval(tickInterval);
-  // hide countdown digits
-  const digitsEl = document.querySelector('.digits');
-  if(digitsEl) digitsEl.style.display = 'none';
-  // optionally hide reset button to avoid confusion
-  const resetBtnEl = document.getElementById('resetBtn');
-  if(resetBtnEl) resetBtnEl.style.display = 'none';
-  // show celebration immediately
-  setTimeout(() => {
-    launchCelebration();
-  }, 300); // small delay to allow page render/animations
-}
-
-/* =============================
-   AUDIO ACTIVATION (reliable)
-   ============================= */
-
-audioBtn.addEventListener("click", async () => {
-  try {
-    // Try to play after a real user gesture
-    await music.play();
-    music.volume = 1.0;
-    audioUnlocked = true;
-    muted = false;
-    audioBtn.style.display = "none";
-    muteBtn.textContent = "🔊 Music ON";
-  } catch (err) {
-    // If playback fails (rare), prompt the user to tap again
-    console.warn("Audio.play() failed:", err);
-    audioBtn.textContent = "Tap again to enable 🎵";
-  }
-});
-
-// Mute / unmute toggle (works only after audio unlocked)
-muteBtn.addEventListener("click", () => {
-  if(!audioUnlocked){
-    // reveal audio button so user can enable playback
-    audioBtn.style.display = "block";
-    audioBtn.focus();
-    return;
-  }
-  muted = !muted;
-  if(muted){
-    music.pause();
-    muteBtn.textContent = "🔇 Music OFF";
-  } else {
-    music.play().catch(()=>{});
-    muteBtn.textContent = "🔊 Music ON";
-  }
-});
-
-/* =============================
-   CONFETTI
-   ============================= */
-
-function popConfetti(count = 120){
-  for(let i = 0; i < count; i++){
-    const c = document.createElement("div");
-    c.style.position = "absolute";
-    c.style.width = (8 + Math.random()*12) + "px";
-    c.style.height = (12 + Math.random()*12) + "px";
-    c.style.background = getRandomColor();
-    c.style.left = Math.random()*100 + "%";
-    c.style.top = "-10%";
-    c.style.opacity = "0.95";
-    c.style.borderRadius = "3px";
-    c.style.transform = `rotate(${Math.random()*360}deg)`;
-    c.style.zIndex = "360";
-    confettiContainer.appendChild(c);
+/* CONFETTI: single burst */
+function popConfetti(count = 80){
+  for(let i=0;i<count;i++){
+    const el = document.createElement('div');
+    el.style.position = 'absolute';
+    el.style.left = Math.random()*100 + '%';
+    el.style.top = '-6%';
+    const w = 8 + Math.random()*18;
+    const h = 12 + Math.random()*18;
+    el.style.width = w + 'px';
+    el.style.height = h + 'px';
+    el.style.background = getRandomColor();
+    el.style.opacity = '0.95';
+    el.style.borderRadius = '3px';
+    el.style.transform = `rotate(${Math.random()*360}deg)`;
+    el.style.zIndex = '360';
+    confettiContainer.appendChild(el);
 
     const duration = 2000 + Math.random()*2200;
     const delay = Math.random()*400;
 
-    const anim = c.animate([
+    const anim = el.animate([
       { transform: `translateY(0) rotate(${Math.random()*360}deg)`, opacity: 1 },
-      { transform: `translateY(${110 + Math.random()*30}vh) rotate(${720 + Math.random()*360}deg)`, opacity: 0.8 }
+      { transform: `translateY(${110 + Math.random()*30}vh) rotate(${720 + Math.random()*360}deg)`, opacity: 0.85 }
     ], {
       duration: duration,
-      easing: "cubic-bezier(.15,.7,.35,1)",
+      easing: 'cubic-bezier(.15,.7,.35,1)',
       delay: delay,
-      fill: "forwards"
+      fill: 'forwards'
     });
 
-    anim.onfinish = () => c.remove();
+    anim.onfinish = () => { if(el && el.parentNode) el.parentNode.removeChild(el); };
   }
 }
 
 function getRandomColor(){
-  const colors = ["#ff6bcb","#ffd93d","#6bdfff","#6bffb8","#c47dff","#ff8fab","#ffee65"];
+  const colors=["#ff6bcb","#ffd93d","#6bdfff","#6bffb8","#c47dff","#ff8fab","#ffee65"];
   return colors[Math.floor(Math.random()*colors.length)];
 }
 
-/* =============================
-   CELEBRATION
-   ============================= */
-
-function launchCelebration(){
-  // Play sound/music if enabled
+/* CELEBRATION: show overlay, confetti loop, music */
+function launchCelebration(startContinuous = true){
+  // music
   if(audioUnlocked && !muted){
-    music.currentTime = 0;
-    music.play().catch(()=>{});
+    try{ music.currentTime = 0; music.play().catch(()=>{}); }catch(e){}
   }
+  // show overlay
+  celebration.style.display = 'flex';
+  celebration.setAttribute('aria-hidden','false');
+
+  // single initial burst
   popConfetti(160);
-  celebration.style.display = "flex";
-  celebration.setAttribute("aria-hidden", "false");
 
-  // Big visual pulse on the permanent message
-  const happyMessage = document.getElementById("happyMessage");
-  happyMessage.animate([
-    { transform: "scale(1)" },
-    { transform: "scale(1.06)" },
-    { transform: "scale(1)" }
-  ], { duration: 1200, easing: "ease-out" });
-
-  // After celebration, hide overlay and reset target to next year
-  setTimeout(() => {
-    celebration.style.display = "none";
-    celebration.setAttribute("aria-hidden", "true");
-    target = nextBirthday();
-    // restore reset button if it was hidden earlier
-    const resetBtnEl = document.getElementById('resetBtn');
-    if(resetBtnEl) resetBtnEl.style.display = '';
-    // restore digits display (if you want them back after celebration)
-    const digitsEl = document.querySelector('.digits');
-    if(digitsEl) digitsEl.style.display = '';
-  }, 9000);
+  // continuous confetti while celebration (small bursts every 1.4s)
+  if(startContinuous && !confettiInterval){
+    confettiInterval = setInterval(()=> popConfetti(36), 1400);
+  }
 }
 
-/* =============================
-   RESET BUTTON
-   ============================= */
+/* Stop celebration (called at midnight) */
+function stopCelebration(){
+  // stop music? keep user choice
+  if(confettiInterval){ clearInterval(confettiInterval); confettiInterval = null; }
+  celebration.style.display = 'none';
+  celebration.setAttribute('aria-hidden','true');
+  // restore digits/controls
+  if(digitsEl) digitsEl.style.display = '';
+  if(resetBtn) resetBtn.style.display = '';
+}
 
-resetBtn.addEventListener("click", () => {
+/* compute milliseconds until next midnight (end of today) */
+function msUntilMidnight(){
+  const now = new Date();
+  const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0,0,0,0);
+  return tomorrow - now;
+}
+
+/* INITIALIZATION */
+let target = nextBirthday();
+
+/* Start countdown tick (but may be hidden immediately if birthday) */
+tickInterval = setInterval(update, 33);
+update();
+
+/* If today is birthday => show celebration for the rest of the day */
+if(isTodayBirthday()){
+  // hide countdown UI and reset button
+  if(digitsEl) digitsEl.style.display = 'none';
+  if(resetBtn) resetBtn.style.display = 'none';
+
+  // show celebration immediately and start continuous confetti
+  setTimeout(()=> launchCelebration(true), 250);
+
+  // schedule stop at midnight (end of day) to restore normal state
+  const ms = msUntilMidnight();
+  setTimeout(()=>{
+    stopCelebration();
+    // reset target to next year
+    target = nextBirthday();
+    update();
+  }, ms + 500); // small buffer
+}
+
+/* AUDIO activation */
+audioBtn.addEventListener('click', async () => {
+  try {
+    await music.play();
+    music.volume = 1.0;
+    audioUnlocked = true;
+    muted = false;
+    audioBtn.style.display = 'none';
+    muteBtn.textContent = '🔊 Music ON';
+  } catch (err){
+    console.warn('Audio play failed', err);
+    audioBtn.textContent = 'Tap again to enable 🎵';
+  }
+});
+
+/* Mute toggle */
+muteBtn.addEventListener('click', () => {
+  if(!audioUnlocked){
+    audioBtn.style.display = 'block';
+    audioBtn.focus();
+    return;
+  }
+  muted = !muted;
+  if(muted){ music.pause(); muteBtn.textContent = '🔇 Music OFF'; }
+  else { music.play().catch(()=>{}); muteBtn.textContent = '🔊 Music ON'; }
+});
+
+/* Reset button */
+resetBtn.addEventListener('click', () => {
   target = nextBirthday();
-  // stop any playing music if wanted
   if(audioUnlocked && !muted){
     music.pause();
     music.currentTime = 0;
-    // resume if previously unmuted
     music.play().catch(()=>{});
   }
 });
 
-/* Optional: try to unlock audio on first user gesture (improves UX) */
+/* Best-effort attempt to unlock audio on first gesture (no guarantee) */
 function tryUnlockOnFirstGesture(){
   function unlock(){
-    window.removeEventListener("click", unlock);
-    window.removeEventListener("touchstart", unlock);
+    window.removeEventListener('click', unlock);
+    window.removeEventListener('touchstart', unlock);
     if(!audioUnlocked){
-      music.play().then(()=>{
-        music.pause();
-        music.currentTime = 0;
-        // keep audioUnlocked false until user presses the explicit button (we still attempted)
-      }).catch(()=>{});
+      music.play().then(()=>{ music.pause(); music.currentTime = 0; }).catch(()=>{});
     }
   }
-  window.addEventListener("click", unlock, { once: true, passive: true });
-  window.addEventListener("touchstart", unlock, { once: true, passive: true });
+  window.addEventListener('click', unlock, { once:true, passive:true });
+  window.addEventListener('touchstart', unlock, { once:true, passive:true });
 }
 tryUnlockOnFirstGesture();
 
 </script>
-
 </body>
-   </html>
+</html>
