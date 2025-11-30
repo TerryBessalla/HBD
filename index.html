@@ -313,9 +313,10 @@ h1{
 <div id="confettiContainer" aria-hidden="true"></div>
 
 <!-- Birthday Music via Wikimedia (OGG + fallback mp3) -->
+<<!-- audio using the uploaded file (first try) -->
 <audio id="music" preload="auto" loop>
-  <source src="https://upload.wikimedia.org/wikipedia/commons/0/02/Happy_Birthday_to_You.ogg" type="audio/ogg">
-  <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/0/02/Happy_Birthday_to_You.ogg/Happy_Birthday_to_You.ogg.mp3" type="audio/mpeg">
+  <source src="happy-birthday.ogx" type="audio/ogg"> <!-- try as .ogx served as ogg container -->
+  <source src="happy-birthday.ogx" type="audio/mpeg"> <!-- fallback if server reports mp3 -->
   Your browser does not support the audio element.
 </audio>
 
